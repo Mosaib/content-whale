@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function Navbar() {
   const [showContentDropdown, setShowContentDropdown] = useState(false);
   const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen] = useState(false);
 
   return (
     <>

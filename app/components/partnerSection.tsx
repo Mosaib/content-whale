@@ -35,5 +35,6 @@ export default function HeroSection() {
             </div>
         </div>
     </section>
+    // main
   );
 }

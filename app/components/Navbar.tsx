@@ -53,9 +53,8 @@ export default function Navbar() {
                 </Link>
                 <span className="new-badge">NEW</span>
               </div>
-
               <Link href="/" className="custom-gradient text-light">
-                Let's Talk →
+                {"Let's Talk →"}
               </Link>
             </div>
           </div>
@@ -242,7 +241,6 @@ export default function Navbar() {
           .nav-menu.active { right: 0; }
 
           .nav-left, .nav-right { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-          .talk-button { width: 100%; text-align: center; }
         }
       `}</style>
     </>

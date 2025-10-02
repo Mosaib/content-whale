@@ -9,7 +9,7 @@ export const metadata = {
   description: 'Textual content solutions',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout() {
   return (
     <html lang="en">
       <body>

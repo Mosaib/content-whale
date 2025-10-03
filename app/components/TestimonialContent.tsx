@@ -22,7 +22,7 @@ const testimonials = [
   }
 ];
 
-export default function TestimonialSection() {
+export default function TestimonialContent() {
   const [current, setCurrent] = useState(0);
 
   const prevTestimonial = () => {

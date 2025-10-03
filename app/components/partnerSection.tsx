@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-export default function HeroSection() {
+export default function PartnerSection() {
   return (
     <section className="py-5 text-center" style={{ background: 'linear-gradient(90deg, #f3f0ff, #fff7e6)' }}>
         <div className="container">

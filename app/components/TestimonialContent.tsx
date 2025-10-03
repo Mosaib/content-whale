@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -36,12 +37,6 @@ export default function TestimonialContent() {
   return (
     <>
       <style jsx>{`
-        .testimonial-section {
-          background: linear-gradient(135deg, #f3e7ff 0%, #ffffff 50%, #f3e7ff 100%);
-          min-height: 100vh;
-          padding: 80px 0;
-        }
-
         .testimonial-card {
           background: white;
           border-radius: 20px;
@@ -49,6 +44,7 @@ export default function TestimonialContent() {
           padding: 2.5rem;
           position: relative;
           margin-top: 40px;
+          min-height: 350px;
         }
 
         .quote-icon {
@@ -178,7 +174,7 @@ export default function TestimonialContent() {
         }
       `}</style>
 
-      <section className="testimonial-section">
+      <section className="py-5 testimonial-section">
         <div className="container">
           <div className="row g-5 align-items-center">
             <div className="col-lg-6">
@@ -244,6 +240,18 @@ export default function TestimonialContent() {
                   We&apos;ve been reviewed more than 20,000 times with an average of 4.5 out 5 rating.
                 </p>
               </div>
+              <div className="row text-center align-items-center brand-row">
+                <div className="col-md-4">
+                  <Image src="/testimonial/cluth.png" width={200} height={30} alt="brand1" className="brand-logo"/>
+                </div>
+                <div className="col-md-4">
+                  <Image src="/testimonial/goodFirm.png" width={200} height={30} alt="brand2" className="brand-logo"/>
+                </div>
+                <div className="col-md-4">
+                  <Image src="/testimonial/trustPilot.png" width={200} height={30} alt="brand3" className="brand-logo"/>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

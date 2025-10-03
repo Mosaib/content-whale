@@ -193,3 +193,11 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
   }
 }
+
+.brand-row > div {
+  border-right: 1px solid #ccc;
+}
+
+.brand-row > div:last-child {
+  border-right: none; /* remove last divider */
+}

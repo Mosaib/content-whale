@@ -1,19 +1,29 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+
+interface CaseStudy {
+  id: number;
+  logo: string;
+  title: string;
+  company: string;
+  image1: string;
+  image2: string;
+}
 
 export default function ExpertContent() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  const caseStudies = [
+  const caseStudies: CaseStudy[] = [
     {
       id: 1,
       logo: '/expert/khataLogo.png',
-      title: "KhataBook's Transformation with Content Whale",
+      title: "KhataBook&apos;s Transformation with Content Whale",
       company: 'KhataBook',
       image1: '/expert/khata.png',
-      image2: '/expert/khata.png'
+      image2: '/expert/khata.png',
     },
     {
       id: 2,
@@ -21,7 +31,7 @@ export default function ExpertContent() {
       title: 'Putting Heritage Hospitals on the Map',
       company: 'Heritage Hospitals',
       image1: '/expert/heritage.png',
-      image2: '/expert/heritage.png'
+      image2: '/expert/heritage.png',
     },
     {
       id: 3,
@@ -29,13 +39,14 @@ export default function ExpertContent() {
       title: 'Digital Transformation Success Story',
       company: 'Company 3',
       image1: '/expert/knowledge.png',
-      image2: '/expert/knowledge.png'
-    }
+      image2: '/expert/knowledge.png',
+    },
   ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        const currentCards = cardsRef.current; // copy ref for cleanup
         entries.forEach((entry) => {
           const cardId = Number(entry.target.getAttribute('data-id'));
           if (entry.isIntersecting) {
@@ -44,6 +55,12 @@ export default function ExpertContent() {
             );
           }
         });
+
+        return () => {
+          currentCards.forEach((card) => {
+            if (card) observer.unobserve(card);
+          });
+        };
       },
       { threshold: 0.3 }
     );
@@ -51,25 +68,18 @@ export default function ExpertContent() {
     cardsRef.current.forEach((card) => {
       if (card) observer.observe(card);
     });
-
-    return () => {
-      cardsRef.current.forEach((card) => {
-        if (card) observer.unobserve(card);
-      });
-    };
   }, []);
 
   const cardBackgrounds = [
     'linear-gradient(166.98deg, #FFFFFF -1.49%, #FFD5D5 111.96%)',
     'linear-gradient(166.98deg, #FFFFFF -1.49%, #F3FFFF 111.96%)',
-    'linear-gradient(167deg, #fff -1.49%, #fdedfd 111.96%)'
+    'linear-gradient(167deg, #fff -1.49%, #fdedfd 111.96%)',
   ];
 
   return (
     <section className="py-5 bg-light">
       <div className="container-fluid">
         <div className="row align-items-center">
-
           <div className="col-lg-1"></div>
           <div className="col-lg-3 mb-4 mb-lg-0">
             <h2 className="display-5 fw-bold mb-3">
@@ -88,34 +98,45 @@ export default function ExpertContent() {
                   <div
                     key={study.id}
                     data-id={study.id}
-                    ref={(el) => { cardsRef.current[index] = el; }} // fixed
-                    className={`case-study-card ${visibleCards.includes(study.id) ? 'visible' : ''}`}
+                    ref={(el) => {
+                      cardsRef.current[index] = el;
+                    }}
+                    className={`case-study-card ${
+                      visibleCards.includes(study.id) ? 'visible' : ''
+                    }`}
                     onMouseEnter={() => setHoveredCard(study.id)}
                     onMouseLeave={() => setHoveredCard(null)}
                     style={{ background: cardBackgrounds[index] }}
-                    >
-
+                  >
                     <div className="card-content">
                       <div className="logo-container mb-3">
-                        <img
+                        <Image
                           src={study.logo}
                           alt={study.company}
-                          style={{ height: '40px', objectFit: 'contain' }}
+                          width={150}
+                          height={40}
+                          style={{ objectFit: 'contain' }}
                         />
                       </div>
                       <h5 className="fw-bold mb-4">{study.title}</h5>
                       <div className="images-container">
                         <div
-                          className={`image-slider ${hoveredCard === study.id ? 'hovered' : ''}`}
+                          className={`image-slider ${
+                            hoveredCard === study.id ? 'hovered' : ''
+                          }`}
                         >
-                          <img
+                          <Image
                             src={study.image1}
                             alt={study.company}
+                            width={300}
+                            height={200}
                             className="image-item"
                           />
-                          <img
+                          <Image
                             src={study.image2}
                             alt={study.company}
+                            width={300}
+                            height={200}
                             className="image-item"
                           />
                         </div>

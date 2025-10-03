@@ -210,9 +210,8 @@ export default function PriceSection() {
                 </div>
               </div>
 
-              {/* Right Side - What's Included */}
               <div className="col-md-6">
-                <h2 className="h3 fw-bold mb-4">What's Included</h2>
+                <h2 className="h3 fw-bold mb-4">What&apos;s Included</h2>
 
                 <div className="d-flex flex-column gap-3 mb-4">
                   {[
@@ -245,7 +244,7 @@ export default function PriceSection() {
               </div>
               <div className="col-md-4 text-md-end">
                 <button className="btn-talk-experts">
-                  Talk to our experts →
+                  Talk to our experts &rarr;
                 </button>
               </div>
             </div>

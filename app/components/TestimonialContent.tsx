@@ -24,7 +24,7 @@ export default function TestimonialContent() {
       const data = await response.json();
       setTestimonials(data.data || []);
     } catch (err: unknown) {
-      console.error('Error fetching testimonials:', err);
+      console.error('Error fetching testimonials! make sure backend server is running:', err);
 
       const message = err instanceof Error ? err.message : 'Failed to fetch testimonials. Backend might be down.';
       setError(message);
@@ -118,9 +118,9 @@ export default function TestimonialContent() {
           {/* Right side info / brands */}
           <div className="col-lg-6">
             <div>
-              <h2 className="section-title">Don't Just Take Our Word for it</h2>
+              <h2 className="section-title">Don&apos;t Just Take Our Word for it</h2>
               <p className="section-description">
-                We've been reviewed more than 20,000 times with an average of 4.5 out 5 rating.
+                We&apos;ve been reviewed more than 20,000 times with an average of 4.5 out 5 rating.
               </p>
             </div>
             <div className="row text-center align-items-center brand-row">

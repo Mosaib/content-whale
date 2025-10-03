@@ -1,10 +1,16 @@
 'use client';
-import { useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, ReactNode } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function BootstrapClient({ children }: { children: React.ReactNode }) {
+interface Props {
+  children: ReactNode;
+}
+
+export default function BootstrapClient({ children }: Props) {
   useEffect(() => {
-    require('bootstrap/dist/js/bootstrap.bundle');
+    import('bootstrap/dist/js/bootstrap.bundle.min.js')
+      .then(() => {})
+      .catch((err) => console.error('Bootstrap JS failed to load', err));
   }, []);
 
   return <>{children}</>;

@@ -238,10 +238,10 @@ export default function TestimonialSection() {
             <div className="col-lg-6">
               <div>
                 <h2 className="section-title">
-                  Don't Just Take Our Word for it
+                  Don&apos;t Just Take Our Word for it
                 </h2>
                 <p className="section-description">
-                  We've been reviewed more than 20,000 times with an average of 4.5 out 5 rating.
+                  We&apos;ve been reviewed more than 20,000 times with an average of 4.5 out 5 rating.
                 </p>
               </div>
             </div>

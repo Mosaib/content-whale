@@ -110,3 +110,89 @@ h1, h2, h3, h4, h5, h6 {
 .fontMontserrat {
   font-family: 'Montserrat', sans-serif
 }
+
+.underlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.underlay .bg-curve {
+    object-fit: fill;
+}
+
+.featureTitle {
+  font-family: Lato;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.numberLable {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4A5568;
+    white-space: pre-line;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.75rem !important;
+    }
+
+    .featureTitle {
+        font-size: 1rem;
+        min-height: auto;
+    }
+
+    .fw-bold[style*="3.5rem"] {
+        font-size: 2.5rem !important;
+    }
+}
+
+.numbers{
+  font-family: Satoshi!important;
+  background: linear-gradient(90deg, #42175A 0%, #811861 18.02%, #BB2A5D 35.73%, #E44E49 55%, #FA8333 75.31%, #FBBB18 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 64px;
+  line-height: 156%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.publicationSubtitle {
+    font-family: 'Satoshi', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 100%;
+    background: rgba(66, 23, 91, 1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-logo {
+    width: 100%;
+    height: auto;
+}
+
+.desktop-only {
+    display: none;
+}
+
+@media (min-width: 992px) {
+  .desktop-only {
+    display: inline-block;
+  }
+}
+
+
+

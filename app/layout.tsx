@@ -9,7 +9,7 @@ import PriceSection from './components/PriceSection';
 import FeatureSection from './components/FeatureSection';
 import PublicationSection from './components/PublicationSection';
 import ExpertContent from './components/ExpertContent';
-import Home from './page';
+import TestimonialContent from './components/TestimonialContent';
 
 export const metadata = {
   title: 'Content Whale - Home',
@@ -29,8 +29,7 @@ export default function RootLayout() {
           <FeatureSection />
           <PublicationSection />
           <ExpertContent />
-          <Home />
-          {/* {children} */}
+          <TestimonialContent />
         </BootstrapClient>
       </body>
     </html>

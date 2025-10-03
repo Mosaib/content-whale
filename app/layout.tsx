@@ -3,7 +3,7 @@ import "./fontawesome";
 import BootstrapClient from './BootstrapClient';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import PartnerSection from './components/PartnerSection';
+import PartnerContent from './components/PartnerContent';
 import SolutionSection from './components/SolutionSection';
 import PriceSection from './components/PriceSection';
 import FeatureSection from './components/FeatureSection';
@@ -23,7 +23,7 @@ export default function RootLayout() {
         <BootstrapClient>
           <Navbar />
           <HeroSection />
-          <PartnerSection />
+          <PartnerContent />
           <SolutionSection />
           <PriceSection />
           <FeatureSection />

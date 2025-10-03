@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-export default function HeroSection() {
+export default function PriceSection() {
   const [activeTab, setActiveTab] = useState('Content Writing');
   const [serviceType, setServiceType] = useState('Service Type');
   const [wordCount, setWordCount] = useState(500);
@@ -20,7 +20,7 @@ export default function HeroSection() {
     <>
       <style jsx>{`
         .pricing-section {
-          background: linear-gradient(90deg, #f3f0ff, #fff7e6);
+          background: linear-gradient(352deg, #f3f0ff00, #f4f0fc);
         }
 
         .tab-pills {
@@ -136,7 +136,7 @@ export default function HeroSection() {
       <section className="pricing-section py-5">
         <div className="price container">
           <h1 className='text-center fw-bold mb-3'>Industry-Leading Quality at Affordable Rates</h1>
-          <p className='rates text-center lead text-secondary mb-4'>
+          <p className='rates text-center mb-4'>
             Starting at 1.5/word for content writing solutions. No contracts, no commitments.
           </p>
 

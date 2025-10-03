@@ -20,7 +20,6 @@ export default function Navbar() {
           <button className='custom-gradient btn text-light mobile-only'>Contact Us</button>
           <div className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
             <div className="nav-left">
-              {/* Content Solutions */}
               <div
                 className={`nav-item desktop-only ${showContentDropdown ? 'show' : ''}`}
                 onMouseEnter={() => setShowContentDropdown(true)}
@@ -68,7 +67,6 @@ export default function Navbar() {
         }
 
         @media (max-width: 992px) {
-          /* Show only on mobile */
           .mobile-only {
             display: inline-block;
           }
@@ -166,15 +164,15 @@ export default function Navbar() {
       }
 
       .rank-purple {
-        color: #7B2C8E; /* Deep purple */
+        color: #7B2C8E;
       }
 
       .rank-orange {
-        color: #FF8C42; /* Coral orange */
+        color: #FF8C42;
       }
 
       .rank-yellow {
-        color: #FFB800; /* Golden yellow */
+        color: #FFB800;
       }
 
       .new-badge {

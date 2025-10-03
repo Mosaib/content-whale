@@ -1,30 +1,34 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const testimonials = [
-  {
-    id: 1,
-    text: "Lorem ipsum kyl nihävis på begösode. Antiposäde evirar fastän neng nifesk. Binar funde. Spesade dohilogi ultrapätt, ponur. Bin krodår fastän niv. Du kan vara drabbad.",
-    author: "Samrth Iyer",
-    date: "2022.03.06"
-  },
-  {
-    id: 2,
-    text: "Another testimonial goes here. It can span multiple lines and explain the user's experience with incredible detail and satisfaction.",
-    author: "Jane Doe",
-    date: "2023.01.12"
-  },
-  {
-    id: 3,
-    text: "Third testimonial content goes here. Add as many as needed to showcase your excellent reviews and customer satisfaction.",
-    author: "John Smith",
-    date: "2023.06.22"
-  }
-];
-
 export default function TestimonialContent() {
+  const [testimonials, setTestimonials] = useState([]);
   const [current, setCurrent] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/testimonials');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const testimonialsData = data.data || data.testimonials || [];
+        setTestimonials(testimonialsData);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching testimonials:', err);
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
 
   const prevTestimonial = () => {
     setCurrent(current === 0 ? testimonials.length - 1 : current - 1);
@@ -33,6 +37,36 @@ export default function TestimonialContent() {
   const nextTestimonial = () => {
     setCurrent(current === testimonials.length - 1 ? 0 : current + 1);
   };
+
+  if (loading) {
+    return (
+      <section className="py-5">
+        <div className="container text-center">
+          <p>Loading testimonials...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-5">
+        <div className="container text-center">
+          <p className="text-danger">Error: {error}</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (testimonials.length === 0) {
+    return (
+      <section className="py-5">
+        <div className="container text-center">
+          <p>make sure backend server is running and data exist.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>
@@ -193,7 +227,9 @@ export default function TestimonialContent() {
                   <div className="d-flex justify-content-between align-items-center">
                     <div>
                       <p className="author-name mb-0">{testimonials[current].author}</p>
-                      <p className="author-date mb-0">{testimonials[current].date}</p>
+                      {testimonials[current].date && (
+                        <p className="author-date mb-0">{testimonials[current].date}</p>
+                      )}
                     </div>
                     <a href="#" className="read-more">Read more</a>
                   </div>
@@ -251,7 +287,6 @@ export default function TestimonialContent() {
                   <Image src="/testimonial/trustPilot.png" width={200} height={30} alt="brand3" className="brand-logo"/>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

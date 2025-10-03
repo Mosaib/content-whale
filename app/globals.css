@@ -86,5 +86,27 @@ body {
   padding: 10px 20px!important;
 }
 
+.solutionCard{
+  font-family: Source Serif Pro;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 32px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: Source Serif Pro;
+}
 
+.rates {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 16px auto 0;
+}
+
+.fontMontserrat {
+  font-family: 'Montserrat', sans-serif
+}

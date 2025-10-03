@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="py-5 text-center" style={{ background: 'linear-gradient(90deg, #f3f0ff, #fff7e6)' }}>
         <div className="partner container">
             <h2>Trusted by <span className='text-warning'>2,000+ Brands</span></h2>
-            <div className="mt-4 row justify-content-center align-items-center g-4 g-lg-5">
+            <div className="mt-1 row justify-content-center align-items-center g-4 g-lg-5">
                 <div className="col-3 col-lg-auto">
                     <Image src="/brands/brand1.svg" width={90} height={30} alt="brand1" className="logo-image"/>
                 </div>

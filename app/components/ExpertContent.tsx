@@ -88,12 +88,13 @@ export default function ExpertContent() {
                   <div
                     key={study.id}
                     data-id={study.id}
-                    ref={(el) => (cardsRef.current[index] = el)}
+                    ref={(el) => { cardsRef.current[index] = el; }} // fixed
                     className={`case-study-card ${visibleCards.includes(study.id) ? 'visible' : ''}`}
                     onMouseEnter={() => setHoveredCard(study.id)}
                     onMouseLeave={() => setHoveredCard(null)}
                     style={{ background: cardBackgrounds[index] }}
-                  >
+                    >
+
                     <div className="card-content">
                       <div className="logo-container mb-3">
                         <img
